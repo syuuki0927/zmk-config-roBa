@@ -1,6 +1,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+
+// エンコーダ 1 ノッチあたりのマウススクロール量（デフォルト 10）。調整可能。
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
+
 #include <dt-bindings/zmk/pointing.h>
 
 &mt {
@@ -55,6 +59,15 @@
     };
 
     behaviors {
+        // ロータリーエンコーダにマウスホイールスクロールを割り当てる。
+        // 時計回り: 上スクロール / 反時計回り: 下スクロール。方向を入れ替えたい場合は bindings の順序を反転する。
+        scroll_up_down: scroll_up_down {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+            tap-ms = <20>;
+        };
+
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
@@ -76,7 +89,7 @@
 &kp LCTRL         &kp LEFT_ALT  &kp LEFT_WIN  &lt_to_layer_0 6 LANG2  &lt 1 SPACE     &lt_to_layer_0 3 LANG1      &kp BACKSPACE  &lt 2 ENTER                                           &kp DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         FUNCTION {
@@ -105,7 +118,7 @@
 &trans          &trans                  &trans          &trans                   &trans                 &trans      &trans                &kp RIGHT_WIN                              &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_AC_SCROLL_UP C_AC_SCROLL_DOWN>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         MOUSE {
