@@ -96,10 +96,10 @@
 
         FUNCTION {
             bindings = <
-&kp TAB           &trans          &trans  &trans           &trans                       &kp F1          &kp F2           &kp F3         &kp F4  &kp F5
-&kp LEFT_CONTROL  &kp LEFT_ARROW  &trans  &kp RIGHT_ARROW  &trans  &trans      &kp F13  &kp F6          &kp F7           &kp RIGHT_WIN  &kp F9  &kp SEMI
-&trans            &trans          &trans  &trans           &trans  &trans      &trans   &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans         &trans  &kp F11
-&trans            &trans          &trans  &trans           &trans  &trans      &trans   &trans                                                  &kp F12
+&kp TAB           &trans          &trans  &trans           &trans                       &kp F1            &kp F2             &kp F3         &kp F4  &kp F5
+&kp LEFT_CONTROL  &kp LEFT_ARROW  &trans  &kp RIGHT_ARROW  &trans  &trans      &kp F13  &kp F6            &kp F7             &kp RIGHT_WIN  &kp F9  &kp SEMI
+&trans            &trans          &trans  &trans           &trans  &trans      &trans   &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans         &trans  &kp F11
+&trans            &trans          &trans  &trans           &trans  &trans      &trans   &kp RIGHT_ALT                                               &kp F12
             >;
         };
 
