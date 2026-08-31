@@ -91,7 +91,7 @@
 &kp LCTRL         &kp LEFT_ALT  &kp LEFT_WIN  &lt_to_layer_0 6 LANG2  &lt 1 SPACE     &lt_to_layer_0 3 LANG1      &kp BACKSPACE  &lt 2 ENTER                                           &kp DEL
             >;
 
-            sensor-bindings = <&scroll_up_down>;
+            sensor-bindings = <&inc_dec_kp A B>;
         };
 
         FUNCTION {
