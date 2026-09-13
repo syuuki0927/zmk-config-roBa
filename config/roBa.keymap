@@ -67,7 +67,10 @@
             #sensor-binding-cells = <0>;
             bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
 
-            tap-ms = <20>;
+            // &msc は内部的に trigger-period-ms(デフォルト16ms)周期のワークキューでのみ
+            // HIDレポートを生成するため、tap-ms が短すぎると release が先に来て
+            // スクロール量が破棄され、何も送信されない。16msに対して十分な余裕を持たせる。
+            tap-ms = <50>;
         };
 
         lt_to_layer_0: lt_to_layer_0 {
@@ -91,7 +94,7 @@
 &kp LCTRL         &kp LEFT_ALT  &kp LEFT_WIN  &lt_to_layer_0 6 LANG2  &lt 1 SPACE     &lt_to_layer_0 3 LANG1      &kp BACKSPACE  &lt 2 ENTER                                           &kp DEL
             >;
 
-            sensor-bindings = <&inc_dec_kp A B>;
+            sensor-bindings = <&scroll_up_down>;
         };
 
         FUNCTION {
